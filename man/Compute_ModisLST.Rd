@@ -10,11 +10,11 @@ Compute_ModisLST(path_to_tif, path_to_shapefiles, path_mod_shapefile,
 \arguments{
 \item{path_to_tif}{Character String; Path to the folder that contains the tif files}
 
-\item{path_to_shapefiles}{;Character String or SpatialPolygonsDataFrames object; The path to the shapefile (.shp) or the shapefile object}
+\item{path_to_shapefiles}{Character String; or SpatialPolygonsDataFrames object; The path to the shapefile (.shp) or the shapefile object}
 
-\item{path_mod_shapefile}{;Character String ; The path where the user wants the Modified Shapefile to be stored}
+\item{path_mod_shapefile}{Character String; The path where the user wants the Modified Shapefile to be stored}
 
-\item{aggregate}{;Character String ; Aggregate values  1. daily
+\item{aggregate}{Character String; Aggregate values  1. daily
 2. weekly
 3. monthly
 4. yearly}
@@ -31,8 +31,8 @@ shape_dsn <- system.file("vectors", package = "LSTModis")[1]
 tif_dsn <- system.file("pictures", package = "LSTModis")[1]
 Shapefile <- rgdal::readOGR(dsn=shape_dsn, layer="Shapefile")
 pwd <- getwd()
-df<-Compute_ModisLST(path_to_tif = tif_dsn ,
-          path_to_shapefiles = Shapefile ,
+df<-Compute_ModisLST(path_to_tif = tif_dsn,
+          path_to_shapefiles = Shapefile,
           path_mod_shapefile = pwd,
           aggregate = "weekly")
 }

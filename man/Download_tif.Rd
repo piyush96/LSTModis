@@ -10,7 +10,7 @@ Download_tif(username = "abc", password = "**", start_date, end_date,
 \arguments{
 \item{username}{Character String; Username}
 
-\item{password}{Character String ;Password}
+\item{password}{Character String; Password}
 
 \item{start_date}{Character String; The start date}
 
@@ -23,15 +23,15 @@ Download_tif(username = "abc", password = "**", start_date, end_date,
 }
 \description{
 Function automates download of the .tif files (raster files).The defualt parameters include :-
-Product:"Surf_Temp_Daily_005dg (M*D11C1)" ,
-sensor: "Terra"
-prod_version: "6"
-out_format: "GTiff"
-MODIStspVersion: "1.3.3.1"
-timeseries_format: "ENVI Meta Files"
-Original MODIS Layers: DAytime land surface temperature
+Product: "Surf_Temp_Daily_005dg (M*D11C1)",
+sensor: "Terra",
+prod_version: "6",
+out_format: "GTiff",
+MODIStspVersion: "1.3.3.1",
+timeseries_format: "ENVI Meta Files".
+Original MODIS Layers: Daytime land surface temperature
 Quality Indicators: Mandatory QA flag(day)
-The script doesn't download the .hdf files
+The script doesn't download the .hdf files.
 }
 \examples{
 pwd<-getwd()

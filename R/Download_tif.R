@@ -3,17 +3,17 @@
   #Refer to the .json file created by the MODIStsp function to know the settings made in the GUI .
 #' @title Download tif files
 #' @description Function automates download of the .tif files (raster files).The defualt parameters include :-
-#' Product:"Surf_Temp_Daily_005dg (M*D11C1)" ,
-#' sensor: "Terra"
-#' prod_version: "6"
-#' out_format: "GTiff"
-#' MODIStspVersion: "1.3.3.1"
-#' timeseries_format: "ENVI Meta Files"
-#' Original MODIS Layers: DAytime land surface temperature
+#' Product: "Surf_Temp_Daily_005dg (M*D11C1)",
+#' sensor: "Terra",
+#' prod_version: "6",
+#' out_format: "GTiff",
+#' MODIStspVersion: "1.3.3.1",
+#' timeseries_format: "ENVI Meta Files".
+#' Original MODIS Layers: Daytime land surface temperature
 #' Quality Indicators: Mandatory QA flag(day)
-#' The script doesn't download the .hdf files
+#' The script doesn't download the .hdf files.
 #' @param username Character String; Username
-#' @param password Character String ;Password
+#' @param password Character String; Password
 #' @param start_date Character String; The start date
 #' @param end_date Character String; The end date
 #' @param option Numeric value; Takes value 1 or 2 : 1-USE default options
