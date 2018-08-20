@@ -23,8 +23,12 @@ Package automates download of the raster files and Calculates the MODIS Land Sur
 LSTModis is a novel "R" package allowing to automize the Temperature Calculation using the raster files derived from MODIS Land Surface Temperature Products.
 
 Development of LSTModis started by making use of the package MODIStsp and using data obtained from https://lpdaac.usgs.gov/ website and processing it to provide the following functionalities:-
-    *1.Automatize raster file download through R without forcing the user to study the various Collections 6 Products and avoid irrelevant study of the vast dataset. 
-    *2.Allowing the user to calculate Land Surface Temperature for the relavant set of dates given the shapefile input.
+```
+    1.Automatize raster file download through R without forcing the user to study the various Collections 6 Products and avoid irrelevant study of the vast dataset. 
+    
+    2.Allowing the user to calculate Land Surface Temperature for the relavant set of dates given the shapefile input.
+
+```
 
 ## 2 LST calculation for Default parameters
 
@@ -51,16 +55,19 @@ Download US County shapefile from the following website:-
 https://www.census.gov/geo/maps-data/data/cbf/cbf_counties.html
 
 Unzip the shapefile folder.Let path_to_shapefiles be the path to the shapefile (.shp) or the shapefile object.
-
+```
 User details:-
-    *1.username Character String; Username.
-    *2.password Character String; Password.
-    *3.start_date Character String; The start date.
-    *4.end_date Character String; The end date.
-    *5.option Numeric value; Takes value 1 or 2 : 1-USE default options.
-                                                2-USE GUI for personalized options.
-    *6.path_files Character String; Path where the user wants tif files to be stored.
-    The following command requires the user to input a username and password. For this reason, the following command has been commented out.
+    1. username Character String; Username.
+    2. password Character String; Password.
+    3. start_date Character String; The start date.
+    4. end_date Character String; The end date.
+    5. option Numeric value; Takes value 1 or 2 : 1-USE default options.
+                                                   2-USE GUI for personalized options.
+    6. path_files Character String; Path where the user wants tif files to be stored.
+
+```
+    
+    The following command requires the user to input a username and password.For this reason, the following command has been commented out.
                
 ```{r}
 #Download raster files
@@ -82,14 +89,17 @@ Download_tif(username=".",password=".",start_date="2017-12-19",end_date="2017-12
 
 
 Function automates the computation of MODIS Land Surface Temperature.It creates Shapefiles with Temperature columns appended and it is stored at the path provided by the user.This requires the user to download the raster files first.
-    *1.path_to_tif Character String; Path to the folder that contains the tif files.
-    *2.path_to_shapefiles ;Character String or SpatialPolygonsDataFrames object; The path to the shapefile (.shp) or the shapefile object.
-    *3.path_mod_shapefile ;Character String ; The path where the user wants the Modified Shapefile to be stored.
-    *4.aggregate ;Character String ; Aggregate values  1. daily
-                                                       2. weekly
-                                                       3. monthly
-                                                       4. yearly
-    *5.Dataframe with new columns appended with Land Surface Temperature in Celcius and a modified shapefile is returned.
+```
+    1.path_to_tif Character String; Path to the folder that contains the tif files.
+    2.path_to_shapefiles ;Character String or SpatialPolygonsDataFrames object; The path to the shapefile (.shp) or the shapefile object.
+    3.path_mod_shapefile ;Character String ; The path where the user wants the Modified Shapefile  to be stored.
+    4.aggregate ;Character String ; Aggregate values  1. daily
+                                                      2. weekly
+                                                      3. monthly
+                                                      4. yearly
+    5.Dataframe with new columns appended with Land Surface Temperature in Celcius and a modified  shapefile is returned.
+```
+
 
 ```{r}
 library(rgdal)
@@ -99,11 +109,18 @@ tif_dsn <- system.file("pictures", package = "LSTModis")[1]
 print(shape_dsn)
 Shapefile <- readOGR(dsn=shape_dsn, layer="Shapefile")
 pwd <- getwd()
+pwd <-paste0(pwd,sep = "","/")
 df<-Compute_ModisLST(path_to_tif = tif_dsn,
                      path_to_shapefiles = Shapefile,
                      path_mod_shapefile = pwd,
                      aggregate="weekly")
 
 ```
+References:
+
+1. Wan, Z. (2007). Collection-5 MODIS land surface temperature products users’ guide. ICESS, University of California, Santa Barbara.
+
+2. L. Busetto, L. Ranghetti (2016) MODIStsp: An R package for automatic preprocessing of MODIS Land Products time series, Computers & Geosciences, Volume 97, Pages 40-48, ISSN 0098-3004, http://dx.doi.org/10.1016/j.cageo.2016.08.020. URL https://github.com/lbusett/MODIStsp/.
+
 
 

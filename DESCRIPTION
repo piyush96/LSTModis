@@ -4,7 +4,8 @@ Title: Computes MODIS Land Surface Temperature
 Version: 0.1.0
 Author: Piyush Gupta [aut, cre],
         Deepak Malghan [aut]
-Maintainer: Piyush Developer <piyush.gupta96@gmail.com>
+Authors@R: c(person("Piyush", "Gupta", email = "piyush.gupta96@gmail.com", role = c("aut", "cre")),
+    person("Deepak", "Malghan", role="aut"))
 Description: Automates download of the .tif files (raster files)
     and calculates the Land Surface Temperature.The defualt parameters include :-
     1. Product:"Surf_Temp_Daily_005dg (M*D11C1)",
@@ -33,5 +34,7 @@ Imports:
 Suggests: knitr,
     rmarkdown,
     rgdal
+SystemRequirements: Cairo >= 1.0.0, ATK (>= 1.10.0), Pango (>= 1.10.0), GTK+ (>=
+    2.8.0), GLib (>= 2.8.0), Curl, GDAL (>= 1.6.3), PROJ.4 (>= 4.4.9)
 VignetteBuilder: knitr
 Depends: R (>= 2.10)
