@@ -35,6 +35,13 @@ Compute_ModisLST<-function(path_to_tif,path_to_shapefiles,path_mod_shapefile,agg
 
 
     #Calling rasterVector function from Rscript rasterVectorMODIS.R
+    if(grepl("inst/pictures",path_to_tif)){
+      zipF<-path_to_tif # lets you choose a file and save its file path in R (at least for windows)
+      outDir<-pwd # Define the folder where the zip file should be unzipped to 
+      zipF_path<- paste0(zipF,"/","picture.zip")
+      path_to_tif<-unzip(zipF_path,exdir=outDir) 
+    }
+  
     df<-rasterVector(directory=path_to_tif,shapefile=path_to_shapefiles,  differentiatingString="MOD11C1")
 
 
